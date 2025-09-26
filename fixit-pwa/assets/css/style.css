@@ -3,7 +3,7 @@
   \***************************************************************************************************************************************************************************************/
 /*-----------------------------------------------------------------------------------
 
-    Template Name: Fixit App
+    Template Name: Tu Manitas App
     Template URI: https://themes.pixelstrap.net/pwa/fixit/
     Description: This is PWA Html Template
     Author: Pixelstrap
@@ -1474,7 +1474,7 @@ li {
     animation: smokeOut 1.5s ease-in-out infinite alternate;
     text-shadow: 0 0 1px rgba(var(--title-color), 0.06); }
     .loader-wrapper .loader:before {
-      content: "Fixit"; }
+      content: "Tu Manitas"; }
 
 @keyframes smokeOut {
   100% {
