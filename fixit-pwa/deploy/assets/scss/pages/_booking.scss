@@ -1,0 +1,203 @@
+/*========================
+  5.2  booking CSS start
+==========================*/
+.booking-list {
+    .booking-box {
+        width: 100%;
+        background-color: rgba(var(--white), 1);
+        border: 1px solid rgba(var(--line-color), 1);
+        border-radius: 10px;
+        box-shadow: 0px 2px 12px 0px rgba(0, 22, 46, 0.06);
+        margin-top: 15px;
+
+        .booking-details {
+            padding: 15px;
+            .service-content {
+                width: calc(100% - 90px - 8px);
+
+                .icon {
+                    --Iconsax-Color: rgba(var(--title-color), 1);
+                    --Iconsax-Size: 16px;
+                }
+            }
+            .service-img {
+                width: 90px;
+                height: 90px;
+                margin-left: auto;
+                [dir="rtl"] & {
+                    margin-right: auto;
+                    margin-left: unset;
+                }
+
+                // @media (max-width: 600px) {
+                //     width: calc(70px + (90 - 70) * ((100vw - 320px) / (600 - 320)));
+                //     height: calc(70px + (90 - 70) * ((100vw - 320px) / (600 - 320)));
+                // }
+                .img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 8px;
+                }
+            }
+
+            .notes {
+                padding-top: 10px;
+                border-top: 1px dashed rgba(var(--line-color), 1);
+            }
+
+            .booking-provider-list {
+                margin-top: 15px;
+                padding: 12px;
+                background-color: rgba(var(--box-bg), 1);
+                border-radius: 10px;
+                .booking-provider-box {
+                    padding-block: 15px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    border-bottom: 1px solid rgba(var(--line-color), 1);
+                    &:first-child {
+                        padding-top: 0;
+                    }
+                    &:last-child {
+                        padding-bottom: 0;
+                        border-bottom: 0;
+                    }
+                    .provider-image {
+                        width: 40px;
+                        height: 40px;
+                        .provider-pic {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 100%;
+                        }
+                    }
+                    .provider-content {
+                        width: calc(100% - 40px - 10px);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        h5 {
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            }
+
+            .line-box {
+                position: relative;
+                padding-block: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 1;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    border: 1px dashed rgba(var(--line-color), 1);
+                }
+                .dot1 {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 100%;
+                    background-color: rgba(var(--line-color), 1);
+                }
+
+                .dot2 {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 100%;
+                    background-color: rgba(var(--line-color), 1);
+                }
+            }
+        }
+    }
+}
+.booking-tag {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    color: rgba(255, 255, 255, 1);
+    border-radius: 30px;
+}
+
+.pause-service-btn {
+    display: none;
+
+    .pay-service-btn {
+        background-color: rgba(var(--success-color), 1);
+    }
+}
+
+.receivable-amount-box {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(var(--box-bg), 1);
+    border: 1px solid rgba(var(--line-color), 1);
+    border-radius: 12px;
+
+    .receivable-amount {
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(var(--success-color), 0.1);
+        border-radius: 10px;
+        h6 {
+            color: rgba(var(--title-color), 1) !important;
+        }
+    }
+}
+
+.added-service-details-box {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(var(--line-color), 1);
+    border-radius: 12px;
+    box-shadow: 0px 2px 12px 0px rgba(var(--title-color), 0.05);
+
+    .added-service-content {
+        width: calc(100% - 40px - 10px);
+    }
+    .added-img {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        --Iconsax-Color: rgba(var(--theme-color), 1);
+        --Iconsax-Size: 20px;
+        background-color: rgba(var(--theme-color), 0.1);
+        border-radius: 8px;
+    }
+}
+
+.service-proof {
+    .service-img-list {
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgba(var(--line-color), 1);
+        border-radius: 8px;
+        li {
+            .service-img {
+                width: 65px;
+                height: 65px;
+                object-fit: cover;
+                border-radius: 6px;
+                @media (max-width: 600px) {
+                    width: calc(50px + (65 - 50) * ((100vw - 320px) / (600 - 320)));
+                    height: calc(50px + (65 - 50) * ((100vw - 320px) / (600 - 320)));
+                }
+            }
+        }
+    }
+}
