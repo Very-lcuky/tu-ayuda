@@ -1,21 +1,22 @@
 const path = require("path");
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require("autoprefixer");
 
 module.exports = {
+  mode: "production", // 👈 modo producción
   entry: "./assets/scss/style.scss",
   output: {
-    path: path.resolve(__dirname, "assets/css"),
+    path: path.resolve(__dirname, "dist/assets/css"), // 👈 carpeta final dist
     filename: "style.bundle.js",
+    clean: true, // limpia la carpeta antes de compilar
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
+          MiniCssExtractPlugin.loader, // extrae CSS a un archivo
+          "css-loader", // interpreta @import y url()
           {
             loader: "postcss-loader",
             options: {
@@ -24,28 +25,15 @@ module.exports = {
               },
             },
           },
-          "sass-loader",
+          "sass-loader", // compila SCSS a CSS
         ],
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "style.css",
-    }),
-    new BrowserSyncPlugin({
-      files: ["template/user-app/index.html"],
-      host: "localhost",
-      port: 3000,
-      server: {
-        baseDir: ["template/user-app", "./assets"], // Serve both user-app and assets directories
-        routes: {
-          "/assets": "assets", // Map /assets route to your assets folder
-        },
-      },
-      // server: { baseDir: ["."] },
-      injectChanges: true,
+      filename: "style.css", // archivo final de estilos
     }),
   ],
-  watch: true,
 };
+
