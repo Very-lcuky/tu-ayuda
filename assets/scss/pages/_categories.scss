@@ -1,0 +1,245 @@
+/*=====================
+  5.4  categories CSS start
+==========================*/
+.categories-box {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(var(--box-bg), 1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    .categories-icon {
+        --Iconsax-Color: rgba(var(--title-color), 1);
+        color: rgba(var(--title-color), 1);
+    }
+
+    &.color-categories-box {
+        background-color: rgba(var(--theme-color), 0.09);
+        .categories-icon {
+            --Iconsax-Color: rgba(var(--theme-color), 1);
+            color: rgba(var(--theme-color), 1);
+            height: 30px;
+            object-fit: cover;
+            stroke: rgba(var(--theme-color), 1);
+            fill: rgba(254, 242, 231, 1);
+        }
+    }
+}
+.categories-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.categories-listing {
+    margin-top: 20px;
+    @media (max-width: 600px) {
+        margin-top: calc(10px + (20 - 10) * ((100vw - 320px) / (600 - 320)));
+    }
+    .listing-categories {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(var(--line-color), 1);
+        border-radius: 8px;
+        box-shadow: 0px 2px 12px 0px rgba(var(--title-color), 0.06);
+        cursor: pointer;
+        &:has(.form-check-input:checked) {
+            background-color: rgba(var(--theme-color), 0.1);
+            border-color: rgba(var(--theme-color), 0.1);
+            .form-check {
+                .form-check-label {
+                    .payment-img {
+                        background-color: rgba(var(--white), 1);
+                    }
+                }
+            }
+        }
+        .icon {
+            --Iconsax-Color: rgba(var(--title-color), 1);
+            --Iconsax-Size: 20px;
+        }
+        h5 {
+            font-size: 15px;
+            font-weight: 400;
+            color: rgba(var(--title-color), 1);
+        }
+
+        .form-check {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+
+            .form-check-label {
+                width: 100%;
+                .payment-img {
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 8px;
+                    background-color: rgba(var(--box-bg), 1);
+                    border-radius: 100%;
+                    .payment-icon {
+                        --Iconsax-Color: rgba(var(--title-color), 1);
+                        --Iconsax-Size: 20px;
+                    }
+                }
+            }
+            .form-check-input {
+                width: 20px;
+                height: 20px;
+                float: unset;
+                margin: 0;
+                border: 1px solid rgba(var(--line-color), 1);
+                background-color: transparent;
+                transition: all 0.3s ease-in-out;
+
+                &:checked {
+                    background-color: rgba(var(--theme-color), 1);
+                    border-color: rgba(var(--theme-color), 1);
+                }
+                &:focus {
+                    border-color: rgba(var(--line-color), 1);
+                    box-shadow: none;
+                }
+            }
+
+            [type="radio"] {
+                border-radius: 100%;
+                position: relative;
+
+                &:checked {
+                    background-color: rgba(var(--theme-color), 0.4);
+                    border: transparent;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        background-color: rgba(var(--theme-color), 1);
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        border-radius: 100%;
+                        transition: all 0.3s ease-in-out;
+                    }
+                    ~ .form-check-label {
+                        font-weight: 600;
+                        border-color: rgba(var(--theme-color), 1);
+                        transition: all 0.3s ease;
+                    }
+                }
+            }
+        }
+        &.commission-categories {
+            padding: 15px;
+            h5 {
+                font-size: 14px;
+            }
+
+            .icon {
+                --Iconsax-Color: rgba(var(--content-color), 1);
+            }
+        }
+    }
+
+    &.service-listing {
+        .listing-categories {
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            .form-check {
+                cursor: pointer;
+
+                .form-check-label {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    cursor: pointer;
+                    .categories-icon {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 6px;
+                    }
+                    .categories-name {
+                        font-weight: 500;
+                        font-size: 14px;
+                        color: rgba(var(--title-color), 1);
+                    }
+                }
+            }
+        }
+    }
+
+    &.color-categories-listing {
+        a {
+            .category-img {
+                width: 40px;
+                height: 40px;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(var(--theme-color), 0.09);
+                border-radius: 100%;
+
+                .categories-icon {
+                    width: 100%;
+                    height: 100%;
+                    stroke: rgba(var(--theme-color), 1);
+                    fill: rgba(254, 242, 231, 1);
+                }
+            }
+        }
+    }
+}
+
+.sub-categories-list {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-inline: 20px;
+    overflow: auto;
+    li {
+        .categories-box {
+            width: 60px;
+            height: 60px;
+            .categories-icon {
+                width: 24px;
+                height: 24px;
+                stroke: rgba(var(--title-color), 1);
+                fill: transparent;
+            }
+        }
+        .categories-name {
+            color: rgba(var(--title-color), 1);
+        }
+        &.active {
+            .categories-box {
+                background-color: rgba(var(--theme-color), 0.1) !important;
+                border: 1px solid rgba(var(--theme-color), 1);
+                .categories-icon {
+                    stroke: rgba(var(--theme-color), 1);
+                    fill: transparent;
+                }
+            }
+
+            .categories-name {
+                color: rgba(var(--theme-color), 1);
+            }
+        }
+    }
+}

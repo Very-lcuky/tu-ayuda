@@ -1,0 +1,177 @@
+/*=====================
+   5.17 review CSS start
+==========================*/
+.average-rating {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: rgba(var(--theme-color), 0.1);
+    border: 1px solid rgba(var(--theme-color), 1);
+    border-radius: 20px;
+    .rating {
+        line-height: 1;
+    }
+}
+
+.review-list {
+    .review-box {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 15px;
+        background-color: rgba(var(--white), 1);
+        border: 1px solid rgba(var(--line-color), 1);
+        border-radius: 8px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .review-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .profile-img {
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                object-fit: cover;
+            }
+            .profile-content {
+                width: calc(100% - 40px - 10px);
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                h6 {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    line-height: 1;
+                    font-weight: 500;
+                    color: rgba(var(--title-color), 1);
+                }
+            }
+        }
+        .review-content {
+            margin-top: 15px;
+            color: rgba(var(--title-color), 1);
+        }
+
+        .service-name-part {
+            padding: 12px;
+            background-color: rgba(var(--box-bg), 1);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .arrow-icon {
+                --Iconsax-Color: rgba(var(--content-color), 1);
+                --Iconsax-Size: 18px;
+                line-height: 1;
+            }
+        }
+    }
+}
+
+.review-count {
+    line-height: 1;
+    padding: 15px;
+    border: 1px solid rgba(var(--line-color), 1);
+    border-radius: 8px;
+    box-shadow: 0px 2px 12px 0px rgba(var(--title-color), 0.06);
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+        width: 100%;
+        margin-bottom: 10px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        h6 {
+            width: 40px;
+            color: rgba(var(--title-color), 1);
+            &.text-content {
+                color: rgba(var(--content-color), 1);
+                text-align: right;
+                width: 30px;
+
+                [dir="rtl"] & {
+                    text-align: left;
+                }
+            }
+        }
+        .progress {
+            width: calc(100% - 40px - 40px - 5px);
+            height: 6px;
+            background-color: rgba(var(--content-color), 0.2);
+            border-radius: 3px;
+            .progress-bar {
+                background-color: rgba(var(--secondary-color), 1);
+            }
+        }
+        + li {
+            margin-top: 6px;
+        }
+    }
+}
+
+.add-review-wrapper {
+    background-color: rgba(var(--box-bg), 1);
+    border-radius: 12px;
+
+    .add-review-content {
+        color: rgba(var(--title-color), 1);
+    }
+    .add-review-content {
+        padding: 15px;
+        font-weight: 500;
+        color: rgba(var(--title-color), 1);
+        border-bottom: 1px dashed rgba(var(--line-color), 1);
+    }
+
+    .review-part {
+        padding: 15px;
+        .auth-form {
+            .form-group {
+                &.emoji-part {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    @media (max-width: 600px) {
+                        gap: calc(5px + (15 - 5) * ((100vw - 320px) / (600 - 320)));
+                    }
+                }
+
+                .btn-check {
+                    &:checked {
+                        ~ .emoji-btn {
+                            border: 2px solid rgba(var(--theme-color), 1) !important;
+                            background-color: rgba(var(--theme-color), 0.1) !important;
+                        }
+                        ~ h6 {
+                            color: rgba(var(--theme-color), 1);
+                        }
+                    }
+                }
+
+                .emoji-btn {
+                    padding: 10px;
+                    border: 1px solid rgba(var(--line-color), 1);
+                    .emoji-icon {
+                        width: 25px;
+                    }
+                }
+
+                .emoji-name {
+                    font-size: 12px;
+                    text-align: center;
+                    margin-top: 5px;
+                    color: rgba(var(--content-color), 1);
+                }
+            }
+        }
+    }
+}
