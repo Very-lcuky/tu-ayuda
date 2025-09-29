@@ -1,0 +1,1 @@
+var loadFile=function(e){document.getElementById("output").src=URL.createObjectURL(e.target.files[0])};

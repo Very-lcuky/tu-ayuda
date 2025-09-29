@@ -1,22 +1,29 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require("autoprefixer");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const fs = require("fs");
+
+// Buscar todos los .html en la carpeta raíz
+const htmlFiles = fs.readdirSync(__dirname).filter(file => file.endsWith(".html"));
 
 module.exports = {
-  mode: "production", // 👈 modo producción
-  entry: "./assets/scss/style.scss",
+  mode: "production",
+  entry: "./assets/scss/style.scss", // entrada: estilos SCSS
   output: {
-    path: path.resolve(__dirname, "dist/assets/css"), // 👈 carpeta final dist
-    filename: "style.bundle.js",
-    clean: true, // limpia la carpeta antes de compilar
+    path: path.resolve(__dirname, "dist"),
+    filename: "assets/js/[name].bundle.js",
+    clean: true,
+    publicPath: "./", // rutas relativas → funcionan en IPFS
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader, // extrae CSS a un archivo
-          "css-loader", // interpreta @import y url()
+          MiniCssExtractPlugin.loader,
+          "css-loader",
           {
             loader: "postcss-loader",
             options: {
@@ -25,14 +32,30 @@ module.exports = {
               },
             },
           },
-          "sass-loader", // compila SCSS a CSS
+          "sass-loader",
         ],
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "style.css", // archivo final de estilos
+      filename: "assets/css/style.css",
+    }),
+
+    // Generar automáticamente un HtmlWebpackPlugin para cada HTML
+    ...htmlFiles.map(file =>
+      new HtmlWebpackPlugin({
+        template: `./${file}`,
+        filename: file,
+        inject: false, // no inyecta scripts, solo copia el HTML
+      })
+    ),
+
+    // Copiar assets completos a dist/assets
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "assets", to: "assets" },
+      ],
     }),
   ],
 };

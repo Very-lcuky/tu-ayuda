@@ -1,0 +1,107 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name: Tu Manitas App
+    Template URI: https://themes.pixelstrap.net/pwa/fixit/
+    Description: This is PWA Html Template
+    Author: Pixelstrap
+    Author URL: https://themeforest.net/user/pixelstrap
+
+----------------------------------------------------------------------------------- */
+///* utils Files  *////
+/* 1.1 variable CSS  */
+
+////* Base Files  *////
+/* 2.1 Reset CSS  */
+/* 2.2 Typography CSS */
+
+////* Components Files  *////
+/* 3.1 Button CSS  */
+/* 3.2 Calender CSS  */
+/* 3.5 Chart CSS  */
+/* 3.4 Check Box CSS  */
+/* 3.5 Form CSS  *
+/* 3.5 Form CSS  */
+/* 3.6 Loader CSS  */
+/* 3.7 Modal CSS  */
+/* 3.8 Offcanvas CSS  */
+/* 3.9 Range Slider CSS  */
+/* 3.10 Ratio CSS  */
+/* 3.11 Tab CSS */
+/* 3.12 Title CSS */
+
+////* Layout Files  *////
+/* 4.1 Header css */
+/* 4.2 Nav CSS */
+
+////* Pages Files  *////
+/* 5.1 Authentication CSS */
+/* 5.2 Booking CSS */
+/* 5.3 Chat CSS */
+/* 5.4 Categories CSS */
+/* 5.5 Chatting CSS */
+/* 5.6 Coupon CSS */
+/* 5.7 Elements Page CSS */
+/* 5.8 Empty Pages CSS */
+/* 5.9 Home CSS */
+/* 5.10 Location CSS*/
+/* 5.11 Notification CSS */
+/* 5.12 Offer CSS */
+/* 5.13 onboarding CSS */
+/* 5.14 Packages CSS */
+/* 5.15 Page List CSS */
+/* 5.16 Profile CSS */
+/* 5.17 Review CSS */
+/* 5.18 Service CSS */
+/* 5.19 Wallet CSS */
+
+////* Themes Files  *////
+/* 6.1 Dark CSS */
+
+/*utils scss files */
+@import "utils/variables";
+
+/* base scss files */
+@import "base/reset";
+@import "base/typography";
+
+/* components scss files*/
+@import "components/button";
+@import "components/calender";
+@import "components/chart";
+@import "components/check-box";
+@import "components/form";
+@import "components/loader";
+@import "components/modal";
+@import "components/offcanvas";
+@import "components/range-slider";
+@import "components/ratio";
+@import "components/tab";
+@import "components/title";
+
+/* layout scss files */
+@import "layout/header";
+@import "layout/nav";
+
+/* pages scss files */
+@import "pages/authentication";
+@import "pages/booking";
+@import "pages/cart";
+@import "pages/categories";
+@import "pages/chatting";
+@import "pages/coupon";
+@import "pages/elements";
+@import "pages/empty-page";
+@import "pages/home";
+@import "pages/location";
+@import "pages/notification";
+@import "pages/offer";
+@import "pages/onborading";
+@import "pages/packages";
+@import "pages/page-list";
+@import "pages/profile";
+@import "pages/review";
+@import "pages/service";
+@import "pages/wallet";
+
+/* themes */
+@import "themes/dark";

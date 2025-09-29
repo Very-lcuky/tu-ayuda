@@ -1,0 +1,1 @@
+let deferredPrompt;window.addEventListener("beforeinstallprompt",e=>{deferredPrompt=e});const installApp=document.getElementById("installApp");installApp.addEventListener("click",async()=>{if(null!==deferredPrompt){deferredPrompt.prompt();const{outcome:e}=await deferredPrompt.userChoice;"accepted"===e&&(deferredPrompt=null)}});

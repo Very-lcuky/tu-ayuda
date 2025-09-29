@@ -1,0 +1,131 @@
+/*========================
+  3.3  chart CSS start
+==========================*/
+.earning-chart-wrapper {
+    .earning-chart {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: rgba(var(--box-bg), 1);
+        border-radius: 12px;
+
+        .apexcharts-canvas {
+            .apexcharts-legend {
+                .apexcharts-legend-series {
+                    margin-left: 0 !important;
+                    margin-right: 75px !important;
+                    margin-block: 0px !important;
+                    @media (max-width: 600px) {
+                        margin-right: calc(20px + (75 - 20) * ((100vw - 320px) / (600 - 320))) !important;
+                        [dir="rtl"] & {
+                            margin-left: calc(20px + (75 - 20) * ((100vw - 320px) / (600 - 320))) !important;
+                            margin-right: unset !important;
+                        }
+                    }
+
+                    [dir="rtl"] & {
+                        margin-left: 75px !important;
+                        margin-right: 0 !important;
+                    }
+
+                    .apexcharts-legend-marker {
+                        [dir="rtl"] & {
+                            left: unset !important;
+                            right: -5px !important;
+                            margin-right: unset !important;
+                            margin-left: 3px !important;
+                        }
+                    }
+
+                    .apexcharts-legend-text {
+                        font-size: 14px;
+                        color: rgba(var(--content-color), 1) !important;
+
+                        [dir="rtl"] & {
+                            padding-left: unset !important;
+                            padding-right: 15px !important;
+                            margin-left: unset !important;
+                            margin-right: -15px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.revenue-chart-wrapper {
+    padding: 15px;
+    background-color: rgba(var(--white), 1);
+    border-radius: 12px;
+
+    .listing {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        li {
+            height: 25px;
+            width: 25px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(var(--content-color), 1);
+            background-color: rgba(var(--box-bg), 1);
+            border-radius: 100%;
+            &.active {
+                color: rgba(255, 255, 255, 1);
+                background-color: rgba(var(--theme-color), 1);
+            }
+        }
+    }
+
+    .apexcharts-canvas {
+        .apexcharts-yaxistooltip {
+            padding: 0 !important;
+        }
+        .apexcharts-zoomable {
+            .apexcharts-inner {
+                .apexcharts-bar-series {
+                    .apexcharts-bar-area {
+                        position: relative;
+                        &:hover {
+                            position: relative;
+                            fill: rgba(var(--theme-color), 1);
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                width: 65px;
+                                height: 100px;
+                                top: 0;
+                                left: 50%;
+                                padding: 10px;
+                                background-color: rgba(var(--theme-color), 0.1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .apexcharts-tooltip {
+            .apexcharts-tooltip-title {
+                display: none;
+            }
+            .apexcharts-tooltip-series-group {
+                &.apexcharts-active {
+                    background-color: rgba(var(--theme-color), 1);
+                    .apexcharts-tooltip-marker {
+                        display: none;
+                        margin: 0;
+                    }
+                    .apexcharts-tooltip-text {
+                        color: rgba(var(--white), 1);
+                    }
+                }
+            }
+        }
+        .apexcharts-xaxistooltip {
+            display: none;
+        }
+    }
+}

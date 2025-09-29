@@ -1,0 +1,1 @@
+var passwords=document.querySelectorAll('[type="password"]'),togglers=document.querySelectorAll(".toggler");showHidePassword=s=>()=>{var e=passwords[s],t=togglers[s];"password"==e.type?(e.setAttribute("type","text"),t.classList.add("show")):(t.classList.remove("show"),e.setAttribute("type","password"))},togglers.forEach((s,e)=>{s.addEventListener("click",showHidePassword(e))});
