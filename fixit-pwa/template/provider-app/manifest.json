@@ -1,7 +1,7 @@
 {
   "name": "fixit app",
   "short_name": "fixit app",
-  "lang": "en-US",
+  "lang": "es-ES",
   "start_url": ".",
   "display": "standalone",
   "background_color": "white",
