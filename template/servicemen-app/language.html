@@ -10,7 +10,7 @@
     <meta name="author" content="fixit">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="../../assets/images/logo/favicon.png" type="image/x-icon">
-    <title>Tu Manitas - Servicemen App</title>
+    <title id="page-title">Tu Manitas - Servicemen App</title>
     <link rel="apple-touch-icon" href="../../assets/images/logo/favicon.png">
     <meta name="title-color" content="#00162E">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,9 +23,7 @@
     <!--Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
     <!-- iconsax css -->
     <link rel="stylesheet" type="text/css" href="../../assets/css/vendors/iconsax.css">
@@ -43,6 +41,7 @@
         <span class="loader"></span>
     </div>
     <!-- loader end -->
+    
     <!-- header starts -->
     <header class="main-header">
         <div class="custom-container">
@@ -50,7 +49,7 @@
                 <a href="app-setting.html">
                     <i class="iconsax icon-btn" data-icon="chevron-left"> </i>
                 </a>
-                <h3>Cambiar idioma</h3>
+                <h3 id="change-language-title">Cambiar idioma</h3> <!-- Título en español por defecto -->
             </div>
         </div>
     </header>
@@ -107,6 +106,33 @@
 
     <!-- script js -->
     <script src="../../assets/js/script.js"></script>
+
+    <!-- Script para cambiar idioma -->
+    <script>
+        function changeLanguage(lang) {
+            if (lang === "fixed1") {
+                document.getElementById("change-language-title").innerText = "Change Language";  // Inglés
+                document.getElementById("page-title").innerText = "Your Handy Man - Servicemen App";  // Título en inglés
+            } else if (lang === "fixed2") {
+                document.getElementById("change-language-title").innerText = "تغيير اللغة";  // Árabe
+                document.getElementById("page-title").innerText = "رجل يدك - تطبيق العامل";  // Título en árabe
+            } else if (lang === "fixed3") {
+                document.getElementById("change-language-title").innerText = "Changer de langue";  // Francés
+                document.getElementById("page-title").innerText = "Votre homme à tout faire - Application servicemen";  // Título en francés
+            } else if (lang === "fixed4") {
+                document.getElementById("change-language-title").innerText = "Cambiar idioma";  // Español
+                document.getElementById("page-title").innerText = "Tu Manitas - Aplicación para trabajador";  // Título en español
+            }
+        }
+
+        // Detectar el cambio en los radio buttons
+        document.querySelectorAll('input[name="flexRadioDefault"]').forEach((radio) => {
+            radio.addEventListener('change', function() {
+                changeLanguage(this.id);
+            });
+        });
+    </script>
 </body>
 
 </html>
+

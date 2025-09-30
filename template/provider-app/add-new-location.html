@@ -20,11 +20,10 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!--Google font-->
+    <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
         rel="stylesheet">
 
     <!-- iconsax css -->
@@ -43,6 +42,7 @@
         <span class="loader"></span>
     </div>
     <!-- loader end -->
+
     <!-- header starts -->
     <header class="main-header">
         <div class="custom-container">
@@ -51,7 +51,7 @@
                     <i class="iconsax icon-btn" data-icon="chevron-left"> </i>
                 </a>
 
-                <h3>Add New Location</h3>
+                <h3>Añadir nueva ubicación</h3>
             </div>
         </div>
     </header>
@@ -64,128 +64,117 @@
                 <div class="form-group d-flex align-items-center justify-content-between mt-0 mb-3 gap-3 w-100">
                     <div class="form-check form-check2">
                         <input class="form-check-input" type="radio" name="RadioDefault" id="fixed45" checked>
-                        <label class="form-check-label title-color" for="fixed45">Home </label>
+                        <label class="form-check-label title-color" for="fixed45">Casa</label>
                     </div>
                     <div class="form-check form-check2">
                         <input class="form-check-input" type="radio" name="RadioDefault" id="fixed123">
-                        <label class="form-check-label title-color" for="fixed123">Work </label>
+                        <label class="form-check-label title-color" for="fixed123">Trabajo</label>
                     </div>
                     <div class="form-check form-check2">
                         <input class="form-check-input" type="radio" name="RadioDefault" id="fixed469">
-                        <label class="form-check-label title-color" for="fixed469">Other
-                        </label>
+                        <label class="form-check-label title-color" for="fixed469">Otro</label>
                     </div>
                 </div>
 
+                <!-- Calle -->
                 <div class="form-group mt-0">
-                    <label class="form-label without-line mb-2" for="Inputstreet">Street</label>
+                    <label class="form-label without-line mb-2" for="Inputstreet">Calle</label>
                     <div class="form-input">
-                        <input type="text" class="form-control" id="Inputstreet" placeholder="Street">
+                        <input type="text" class="form-control" id="Inputstreet" placeholder="Calle">
                         <i class="iconsax" data-icon="route-1"></i>
                     </div>
                 </div>
 
+                <!-- Latitud y Longitud -->
                 <div class="d-flex align-items-center gap-3">
                     <div class="form-group w-100">
-                        <label class="form-label without-line mb-2" for="InputLatitude">Latitude</label>
+                        <label class="form-label without-line mb-2" for="InputLatitude">Latitud</label>
                         <div class="form-input">
-                            <input type="number" class="form-control" id="InputLatitude" placeholder="Enter here">
+                            <input type="number" class="form-control" id="InputLatitude" placeholder="Introduce aquí">
                             <i class="iconsax" data-icon="location"></i>
                         </div>
                     </div>
                     <div class="form-group w-100">
-                        <label class="form-label without-line mb-2" for="InputLongitude">Longitude</label>
+                        <label class="form-label without-line mb-2" for="InputLongitude">Longitud</label>
                         <div class="form-input">
-                            <input type="number" class="form-control" id="InputLongitude" placeholder="Enter here">
+                            <input type="number" class="form-control" id="InputLongitude" placeholder="Introduce aquí">
                             <i class="iconsax" data-icon="location"></i>
                         </div>
                     </div>
                 </div>
 
+                <!-- Estado (solo Galicia) -->
                 <div class="form-group">
-                    <label class="form-label without-line mb-2">State</label>
+                    <label class="form-label without-line mb-2">Provincia</label>
                     <select class="form-select w-100">
-                        <option selected="" disabled>state</option>
-                        <option value="1">Galicia</option>
-                        <option value="2">Florida</option>
-Vigo, Pontevedra
-                        <option value="4">South Carolina</option>
-                        <option value="5">Toronto</option>
-                        <option value="6">Quebec</option>
-                        <option value="7">Berlin</option>
-                        <option value="8">Victoria</option>
-                        <option value="9">Delhi</option>
+                        <option selected="" disabled>Selecciona una provincia</option>
+                        <option value="1">A Coruña</option>
+                        <option value="2">Lugo</option>
+                        <option value="3">Ourense</option>
+                        <option value="4">Pontevedra</option>
                     </select>
                 </div>
 
+                <!-- País (solo España) -->
                 <div class="form-group">
-                    <label class="form-label without-line mb-2">Country</label>
-                    <select class="form-select w-100">
-                        <option selected="" disabled>country</option>
-                        <option value="1">España</option>
-                        <option value="2">Canada</option>
-                        <option value="3">Australia</option>
-                        <option value="4">India</option>
-                        <option value="5">Germany</option>
+                    <label class="form-label without-line mb-2">País</label>
+                    <select class="form-select w-100" disabled>
+                        <option selected="" disabled>España</option>
                     </select>
                 </div>
 
-                <div class="d-flex align-items-center gap-2">
-                    <div class="form-group w-100">
-                        <label class="form-label without-line mb-2" for="Inputcity">City</label>
-                        <div class="form-input">
-                            <input type="text" class="form-control" id="Inputcity" placeholder="city">
-                            <i class="iconsax" data-icon="location"></i>
-                        </div>
-                    </div>
-                    <div class="form-group w-100">
-                        <label class="form-label without-line mb-2" for="Inputcode">Zip code</label>
-                        <div class="form-input">
-                            <input type="number" class="form-control" id="Inputcode" placeholder="zip code">
-                            <i class="iconsax" data-icon="gps"></i>
-                        </div>
+                <!-- Ciudad (solo ciudades de Galicia) -->
+                <div class="form-group">
+                    <label class="form-label without-line mb-2" for="Inputcity">Ciudad</label>
+                    <div class="form-input">
+                        <input type="text" class="form-control" id="Inputcity" placeholder="Ciudad (A Coruña, Lugo, etc.)">
+                        <i class="iconsax" data-icon="location"></i>
                     </div>
                 </div>
-                <a href="#added" data-bs-toggle="modal" class="btn theme-btn w-100 auth-btn">Add Location</a>
+
+                <!-- Código Postal -->
+                <div class="form-group">
+                    <label class="form-label without-line mb-2" for="Inputcode">Código postal</label>
+                    <div class="form-input">
+                        <input type="number" class="form-control" id="Inputcode" placeholder="Código postal">
+                        <i class="iconsax" data-icon="gps"></i>
+                    </div>
+                </div>
+
+                <!-- Botón para añadir la ubicación -->
+                <a href="#added" data-bs-toggle="modal" class="btn theme-btn w-100 auth-btn">Añadir Ubicación</a>
             </form>
         </div>
     </section>
     <!-- auth section end -->
 
-
-    <!-- successfully added modal starts -->
+    <!-- Modal de éxito -->
     <div class="modal centered-modal fade" id="added" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Successfully Added</h3>
+                    <h3>Agregado con éxito</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="successful-icon p-4 text-center">
                         <img class="img-fluid icon" src="../../assets/images/successfull.svg" alt="successful">
                     </div>
-                    <p class="title-color">Congratulations ! Your location has successfully added.</p>
+                    <p class="title-color">¡Felicidades! Tu ubicación ha sido añadida con éxito.</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="booking.html" class="btn theme-btn w-100">Okay</a>
+                    <a href="booking.html" class="btn theme-btn w-100">Aceptar</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- successfully added modal end -->
 
-    <!-- iconsax js -->
+    <!-- Scripts -->
     <script src="../../assets/js/iconsax.js"></script>
-
-    <!-- bootstrap js -->
     <script src="../../assets/js/bootstrap.bundle.min.js"></script>
-
-    <!-- template-setting js -->
     <script src="../../assets/js/template-setting.js"></script>
-
-    <!-- script js -->
     <script src="../../assets/js/script.js"></script>
 </body>
 
 </html>
+
