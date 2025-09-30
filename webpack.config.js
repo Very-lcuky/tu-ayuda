@@ -51,10 +51,11 @@ module.exports = {
       })
     ),
 
-    // Copiar assets completos a dist/assets
+    // Copiar assets completos y provider-app a dist
     new CopyWebpackPlugin({
       patterns: [
         { from: "assets", to: "assets" },
+        { from: "template/provider-app", to: "provider-app" },  // <-- línea agregada
       ],
     }),
   ],
