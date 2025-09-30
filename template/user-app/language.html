@@ -20,12 +20,10 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!--Google font-->
+    <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
     <!-- iconsax css -->
     <link rel="stylesheet" type="text/css" href="../../assets/css/vendors/iconsax.css">
@@ -50,7 +48,8 @@
                 <a href="app-setting.html">
                     <i class="iconsax icon-btn" data-icon="chevron-left"> </i>
                 </a>
-                <h3>Cambiar idioma</h3>
+                <!-- Add ID to title for dynamic change -->
+                <h3 id="change-language-title">Cambiar idioma</h3>
             </div>
         </div>
     </header>
@@ -107,6 +106,36 @@
 
     <!-- script js -->
     <script src="../../assets/js/script.js"></script>
+
+    <!-- Add JavaScript to change language -->
+    <script>
+        function changeLanguage(lang) {
+            const title = document.getElementById("change-language-title");
+            if (!title) return;
+            
+            switch(lang) {
+                case "fixed1":
+                    title.innerText = "Change Language";  // Inglés
+                    break;
+                case "fixed2":
+                    title.innerText = "تغيير اللغة";  // Árabe
+                    break;
+                case "fixed3":
+                    title.innerText = "Changer de langue";  // Francés
+                    break;
+                case "fixed4":
+                    title.innerText = "Cambiar idioma";  // Español
+                    break;
+            }
+        }
+
+        document.querySelectorAll('input[name="flexRadioDefault"]').forEach((radio) => {
+            radio.addEventListener('change', function() {
+                changeLanguage(this.id);
+            });
+        });
+    </script>
 </body>
 
 </html>
+
