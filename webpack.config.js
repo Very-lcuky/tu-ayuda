@@ -5,17 +5,35 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const fs = require("fs");
 
-// Buscar todos los .html en la carpeta raíz
-const htmlFiles = fs.readdirSync(__dirname).filter(file => file.endsWith(".html"));
+const htmlFolders = [
+  "template/user-app",
+  "template/provider-app",
+  "template/servicemen-app",
+  "template/elements",
+];
+
+// Recoger todos los archivos HTML dentro de esos directorios
+const htmlFiles = htmlFolders.flatMap(folder => {
+  const fullPath = path.resolve(__dirname, folder);
+  if (fs.existsSync(fullPath)) {
+    return fs.readdirSync(fullPath)
+      .filter(file => file.endsWith(".html"))
+      .map(file => ({
+        folder,
+        file,
+      }));
+  }
+  return [];
+});
 
 module.exports = {
   mode: "production",
-  entry: "./assets/scss/style.scss", // entrada: estilos SCSS
+  entry: "./assets/scss/style.scss",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist"), // Aseguramos que la salida está dentro de dist/
     filename: "assets/js/[name].bundle.js",
-    clean: true,
-    publicPath: "./", // rutas relativas → funcionan en IPFS
+    clean: true, // Limpia los archivos previos en dist/
+    publicPath: "/", // Aseguramos que la ruta pública sea relativa
   },
   module: {
     rules: [
@@ -42,20 +60,56 @@ module.exports = {
       filename: "assets/css/style.css",
     }),
 
-    // Generar automáticamente un HtmlWebpackPlugin para cada HTML
-    ...htmlFiles.map(file =>
-      new HtmlWebpackPlugin({
-        template: `./${file}`,
-        filename: file,
-        inject: false, // no inyecta scripts, solo copia el HTML
-      })
-    ),
+    // Generar un HtmlWebpackPlugin por cada archivo HTML en cada carpeta
+    ...htmlFiles.map(({ folder, file }) => {
+      const templatePath = path.resolve(__dirname, folder, file);
+      const outputFilename = path.join(
+        folder.replace("template", ""), // elimina "template/" para que el archivo quede en la estructura de dist/
+        file
+      );
 
-    // Copiar assets completos y provider-app a dist
+      return new HtmlWebpackPlugin({
+        template: templatePath,
+        filename: outputFilename,
+        inject: false, // No inyecta los scripts automáticamente
+      });
+    }),
+
+    // Copiar assets y las carpetas de template pero excluyendo archivos .html
     new CopyWebpackPlugin({
       patterns: [
-        { from: "assets", to: "assets" },
-        { from: "template/provider-app", to: "provider-app" },  // <-- línea agregada
+        // Copiar recursos estáticos como imágenes y otros archivos
+        { from: "assets", to: path.resolve(__dirname, "dist/assets") },
+
+        // Copiar todas las carpetas de template pero excluyendo los archivos .html
+        { 
+          from: "template/user-app", 
+          to: path.resolve(__dirname, "dist/user-app"), 
+          globOptions: { 
+            ignore: ['**/*.html'] 
+          } 
+        },
+        { 
+          from: "template/provider-app", 
+          to: path.resolve(__dirname, "dist/provider-app"), 
+          globOptions: { 
+            ignore: ['**/*.html'] 
+          } 
+        },
+        { 
+          from: "template/servicemen-app", 
+          to: path.resolve(__dirname, "dist/servicemen-app"), 
+          globOptions: { 
+            ignore: ['**/*.html'] 
+          } 
+        },
+        { 
+          from: "template/elements/**/*", 
+          to: path.resolve(__dirname, "dist/elements"), 
+          globOptions: { 
+            ignore: [] // Aquí no excluimos nada
+          } 
+        },
       ],
     }),
   ],
