@@ -33,7 +33,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"), // Aseguramos que la salida está dentro de dist/
     filename: "assets/js/[name].bundle.js",
     clean: true, // Limpia los archivos previos en dist/
-    publicPath: "/", // Aseguramos que la ruta pública sea relativa
+    publicPath: "./", // Usamos ruta relativa para evitar problemas con las rutas absolutas
   },
   module: {
     rules: [
@@ -64,7 +64,7 @@ module.exports = {
     ...htmlFiles.map(({ folder, file }) => {
       const templatePath = path.resolve(__dirname, folder, file);
       const outputFilename = path.join(
-        folder.replace("template", ""), // elimina "template/" para que el archivo quede en la estructura de dist/
+        folder.replace("template", ""), // Eliminar "template" de la ruta para crear directorios relativos en dist
         file
       );
 
