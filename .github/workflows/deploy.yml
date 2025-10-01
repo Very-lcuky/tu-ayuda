@@ -1,0 +1,30 @@
+name: Deploy App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 2. Establecer la contraseña de la base de datos desde los secretos
+      - name: Set up database connection
+        run: |
+          echo "DB_PASSWORD=${{ secrets.SUPABASE_PASSWORD }}" >> $GITHUB_ENV
+
+      # 3. Otros pasos como desplegar tu aplicación
+      - name: Install dependencies
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy to Production
+        run: |
+          npm run deploy
